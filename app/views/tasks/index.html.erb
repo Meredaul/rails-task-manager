@@ -1,0 +1,25 @@
+<h1>Those are all the current tasks</h1>
+
+
+<% @tasks.each do |task| %>
+
+  <h3>Task: <%= task.title %> </h3>
+
+  <% if task.completed %>
+    <p style="color:green">completed</p>
+  <% else %>
+    <p style="color:red">This is to do</p>
+  <% end %>
+
+  <%= link_to 'more information', task_path(task) %>
+  <%= link_to 'edit the task', edit_task_path(task) %>
+  <%= link_to 'delete the task', task_path(task), method: :delete, data: { confirm: "Are you sure ?"} %>
+
+  </br>
+  <%= task.updated_at %>
+
+<% end %>
+
+</br>
+<%= link_to 'create a new task', new_task_path %>
+

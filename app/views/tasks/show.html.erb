@@ -1,0 +1,15 @@
+<h1>Task: <%= @task.title %> </h1>
+
+<% if @task.completed %>
+  <p style="color: green">completed</p>
+<% else %>
+  <p style="color: red">to do</p>
+<% end %>
+
+<br>Last update on <%= @task.updated_at %>
+
+
+<p></p>
+
+
+<%= link_to('return to index page', tasks_path) %>
